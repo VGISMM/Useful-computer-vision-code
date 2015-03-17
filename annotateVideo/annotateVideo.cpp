@@ -25,15 +25,17 @@ vector<string> annotationStringVector;
 void CallBackFunc(int event, int x, int y, int flags, void* userdata){
   Point pt = Point(x,y);
   int zoomAreaSize = 50;
-  Point finalPoint;
-  finalPoint.x = pt.x-(zoomAreaSize/2);
-  finalPoint.y = pt.y-(zoomAreaSize/2);
+  Point minPoint, maxPoint;
+  minPoint.x = pt.x-(zoomAreaSize/2);
+  minPoint.y = pt.y-(zoomAreaSize/2);
+  maxPoint.x = pt.x+(zoomAreaSize/2);
+  maxPoint.y = pt.y+(zoomAreaSize/2);
  
-  if( (finalPoint.x > 0) && (finalPoint.y > 0))
+  if((minPoint.x > 0) && (minPoint.y > 0) && (maxPoint.x < 1280) && (maxPoint.y < 960))
   {
     myImageClone = imgLOI.clone();
     //std::cout << "Mouse X pos: " << finalPoint.x <<" Mouse Y pos: " << finalPoint.y<< std::endl;
-    zoomArea = myImageClone(Rect(finalPoint, Size(zoomAreaSize, zoomAreaSize)));
+    zoomArea = myImageClone(Rect(minPoint, Size(zoomAreaSize, zoomAreaSize)));
     Mat newimageTralal = zoomArea.clone();
     circle(myImageClone, pt,1, Scalar(0,255,255),1, 8,2);
     
@@ -123,7 +125,7 @@ int main(int argc, char** argv)
   myfile.open(annotationsPath);
   char filename[100];
   char newFilename[100];
-  namedWindow("Annotation Window",CV_GUI_NORMAL);
+  namedWindow("Annotation Window",CV_WINDOW_AUTOSIZE | CV_GUI_NORMAL);
   
   while(1)
   { 
@@ -142,7 +144,7 @@ int main(int argc, char** argv)
       imgClone = imgLOI.clone();
 
       //show the image
-            imshow("Annotation Window", imgLOI);
+      imshow("Annotation Window", imgLOI);
       setMouseCallback("Annotation Window", CallBackFunc, NULL);
       
       // Wait until user press some key

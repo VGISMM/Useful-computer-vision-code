@@ -4,7 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/Users/Morten/Documents/Aalborg University/P10 - Long Master Thesis/code/frameAnnotatorNowTrafficlightCropper/annotateVideo/annotateVideo.cpp" "/Users/Morten/Documents/Aalborg University/P10 - Long Master Thesis/code/frameAnnotatorNowTrafficlightCropper/annotateVideo/CMakeFiles/annotateVideo.dir/annotateVideo.cpp.o"
+  "/Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/annotateVideo.cpp" "/Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/CMakeFiles/annotateVideo.dir/annotateVideo.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")
 

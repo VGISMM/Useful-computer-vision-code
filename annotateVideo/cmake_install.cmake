@@ -1,4 +1,4 @@
-# Install script for directory: /Users/Morten/Documents/Aalborg University/P10 - Long Master Thesis/code/frameAnnotatorNowTrafficlightCropper/annotateVideo
+# Install script for directory: /Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -33,7 +33,7 @@ else()
   set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 endif()
 
-file(WRITE "/Users/Morten/Documents/Aalborg University/P10 - Long Master Thesis/code/frameAnnotatorNowTrafficlightCropper/annotateVideo/${CMAKE_INSTALL_MANIFEST}" "")
+file(WRITE "/Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/${CMAKE_INSTALL_MANIFEST}" "")
 foreach(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  file(APPEND "/Users/Morten/Documents/Aalborg University/P10 - Long Master Thesis/code/frameAnnotatorNowTrafficlightCropper/annotateVideo/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
+  file(APPEND "/Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
 endforeach()

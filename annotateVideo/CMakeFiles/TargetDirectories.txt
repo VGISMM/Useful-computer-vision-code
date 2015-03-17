@@ -1,1 +1,1 @@
-/Users/Morten/Documents/Aalborg University/P10 - Long Master Thesis/code/frameAnnotatorNowTrafficlightCropper/annotateVideo/CMakeFiles/annotateVideo.dir
+/Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/CMakeFiles/annotateVideo.dir

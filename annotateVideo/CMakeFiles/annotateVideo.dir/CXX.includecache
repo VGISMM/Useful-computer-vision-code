@@ -6,9 +6,9 @@
 
 #IncludeRegexTransform: 
 
-/Users/Morten/Documents/Aalborg University/P10 - Long Master Thesis/code/frameAnnotatorNowTrafficlightCropper/annotateVideo/annotateVideo.cpp
+/Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/annotateVideo.cpp
 opencv2/highgui/highgui.hpp
-/Users/Morten/Documents/Aalborg University/P10 - Long Master Thesis/code/frameAnnotatorNowTrafficlightCropper/annotateVideo/opencv2/highgui/highgui.hpp
+/Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/opencv2/highgui/highgui.hpp
 iostream
 -
 stdio.h

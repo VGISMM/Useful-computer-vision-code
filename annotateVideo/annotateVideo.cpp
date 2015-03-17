@@ -2,6 +2,7 @@
 #include <iostream>
 #include <stdio.h>
 #include <fstream>
+#include <sstream>
 #include <opencv2/opencv.hpp>
 
 using namespace std;
@@ -20,6 +21,9 @@ bool leftBeforeRight=false;
 char annotationString[100];
 char finalannotationString[200];
 vector<string> annotationStringVector; 
+vector<string> previousAnnotationStringVector; 
+char previousAnnotationString[100];
+char finalRepeatString[100];
 
 
 void CallBackFunc(int event, int x, int y, int flags, void* userdata){
@@ -30,6 +34,7 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata){
   minPoint.y = pt.y-(zoomAreaSize/2);
   maxPoint.x = pt.x+(zoomAreaSize/2);
   maxPoint.y = pt.y+(zoomAreaSize/2);
+
  
   if((minPoint.x > 0) && (minPoint.y > 0) && (maxPoint.x < 1280) && (maxPoint.y < 960))
   {
@@ -88,11 +93,15 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata){
       for (unsigned n=0; n<annotationStringVector.size(); ++n) 
       {
         sprintf(finalannotationString+strlen(finalannotationString),"%s\t",annotationStringVector.at(n).c_str());
+        //previousAnnotationStringVector.push_back(annotationStringVector.at(n));
+        //std::cout << "looping string" <<annotationStringVector.at(n).c_str() <<std::endl;
       }
       char auha[40];
       sprintf(auha,"%i\t%i\t",frameNumber,numberOfAnnotations);
       myfile << auha << finalannotationString << endl;
       cout << auha << finalannotationString << endl;
+      sprintf(previousAnnotationString,"%s",finalannotationString);
+      //previousAnnotationStringVector = finalannotationString;
       
       annotationStringVector.clear();
       memset(finalannotationString, 0, sizeof(finalannotationString));
@@ -168,6 +177,19 @@ int main(int argc, char** argv)
         cout << "Next frame will be frame: " << frameNumber << endl;
         
       }
+      else if(k=='a') 
+      { 
+        sprintf(finalRepeatString,"%i\t%s",frameNumber,previousAnnotationString);
+        std::cout << "Exact same areas as last frame are saved." << std::endl;
+        myfile << finalRepeatString << endl;
+        memset(finalRepeatString, 0, sizeof(finalRepeatString));
+        stringstream pngfilename;
+        pngfilename << "../outputAnnotations/" << frameNumber << ".png";
+        pngPath = pngfilename.str();
+        imwrite(pngPath,imgClone);
+        frameNumber++;
+
+    } 
     }
     frameIterator++;
     cout << "frameIterator: " << frameIterator << endl;

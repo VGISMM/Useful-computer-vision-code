@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 /Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/CMakeFiles/annotateVideo.dir
+=======
+/Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo/CMakeFiles/annotateVideo.dir
+>>>>>>> newFunctions

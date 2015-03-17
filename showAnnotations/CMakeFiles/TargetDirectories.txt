@@ -1,1 +1,0 @@
-/Users/Morten/Documents/Aalborg University/P10 - Long Master Thesis/code/frameAnnotatorNowTrafficlightCropper/showAnnotations/CMakeFiles/showAnnotations.dir

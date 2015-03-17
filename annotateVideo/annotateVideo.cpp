@@ -100,7 +100,7 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata){
       sprintf(auha,"%i\t%i\t",frameNumber,numberOfAnnotations);
       myfile << auha << finalannotationString << endl;
       cout << auha << finalannotationString << endl;
-      sprintf(previousAnnotationString,"%s",finalannotationString);
+      sprintf(previousAnnotationString,"%i\t%s",numberOfAnnotations,finalannotationString);
       //previousAnnotationStringVector = finalannotationString;
       
       annotationStringVector.clear();

@@ -111,7 +111,7 @@ int main(int argc, char** argv)
           cv::rectangle(imgClone,cv::Point(pointUno, pointDos) ,cv::Point(pointTres,pointQuattro), cv::Scalar(255, 255, 255),2,2);
           Mat temp;
           temp = img(cv::Rect(cv::Point(pointUno+4, pointDos+4), cv::Point(pointTres-4,pointQuattro-4)));
-          cv::resize(temp,temp,cv::Size(20,20),CV_INTER_NEAREST);
+          cv::resize(temp,temp,cv::Size(20,20),cv::INTER_NEAREST);
           sprintf (tempfilename, "../out/%i.png",outputframenumber);
           outputframenumber++;
           imwrite(tempfilename,temp);

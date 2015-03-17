@@ -25,6 +25,21 @@ vector<string> previousAnnotationStringVector;
 char previousAnnotationString[100];
 char finalRepeatString[100];
 
+vector<string> &split(const string &s, char delim, vector<string> &elems) {
+    stringstream ss(s);
+    string item;
+    while (std::getline(ss, item, delim)) {
+        elems.push_back(item);
+    }
+    return elems;
+}
+
+vector<string> split(const string &s, char delim) {
+    vector<string> elems;
+    split(s, delim, elems);
+    return elems;
+}
+
 
 void CallBackFunc(int event, int x, int y, int flags, void* userdata){
   Point pt = Point(x,y);
@@ -68,7 +83,7 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata){
     cout << "Right Click" <<endl;
     leftBeforeRight=false;
 
-    cv::rectangle(imgLOI,cv::Point(leftClickX, leftClickY),cv::Point(rightClickX, rightClickY), cv::Scalar(255, 0, 0),2,2);
+    cv::rectangle(imgLOI,cv::Point(leftClickX, leftClickY),cv::Point(rightClickX, rightClickY), cv::Scalar(255, 0, 0),1,1);
     imshow("Annotation Window", imgLOI);
     printf("Press 's' - Save annotated area. Press 'i' - Ignore annotated area. \n");
     printf("Press 'f' - Write annotated areas to file, followed by 'd' to go to next frame. \n");
@@ -78,7 +93,7 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata){
     if(newKey=='s') 
     {
       sprintf(annotationString,"%i\t%i\t%i\t%i",leftClickX,leftClickY,localWidth,localHeight);
-      cv::rectangle(imgLOI,cv::Point(leftClickX, leftClickY),cv::Point(rightClickX, rightClickY), cv::Scalar(0, 255, 0),2,2);
+      cv::rectangle(imgLOI,cv::Point(leftClickX, leftClickY),cv::Point(rightClickX, rightClickY), cv::Scalar(0, 255, 0),1,1);
       annotationStringVector.push_back(annotationString);
       numberOfAnnotations=numberOfAnnotations+1;
       cout << annotationString << endl;
@@ -87,7 +102,7 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata){
     else if(newKey=='f') 
     {
       sprintf(annotationString,"%i\t%i\t%i\t%i",leftClickX,leftClickY,localWidth,localHeight);
-      cv::rectangle(imgLOI,cv::Point(leftClickX, leftClickY),cv::Point(rightClickX, rightClickY), cv::Scalar(0, 255, 0),2,2);
+      cv::rectangle(imgLOI,cv::Point(leftClickX, leftClickY),cv::Point(rightClickX, rightClickY), cv::Scalar(0, 255, 0),1,1);
       annotationStringVector.push_back(annotationString);
       numberOfAnnotations=numberOfAnnotations+1;
       for (unsigned n=0; n<annotationStringVector.size(); ++n) 
@@ -111,7 +126,7 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata){
     }
     else if(newKey=='i') 
     { 
-      cv::rectangle(imgLOI,cv::Point(leftClickX, leftClickY),cv::Point(rightClickX, rightClickY), cv::Scalar(0, 0, 0),2,2);
+      cv::rectangle(imgLOI,cv::Point(leftClickX, leftClickY),cv::Point(rightClickX, rightClickY), cv::Scalar(0, 0, 0),1,1);
       annotationStringVector.clear();
       imshow("Annotation Window", imgLOI);
     } 
@@ -179,17 +194,62 @@ int main(int argc, char** argv)
       }
       else if(k=='a') 
       { 
-        sprintf(finalRepeatString,"%i\t%s",frameNumber,previousAnnotationString);
+         sprintf(finalRepeatString,"%i\t%s",frameNumber,previousAnnotationString);
         std::cout << "Exact same areas as last frame are saved." << std::endl;
         myfile << finalRepeatString << endl;
+
+       // for (unsigned n=0; n<finalRepeatString.size(); ++n) {
+
+             std::vector<std::string> x = split(finalRepeatString, '\t');
+             int amountAnnotedObjects= atoi(x.at( 1 ).c_str());
+
+
+
+             int frameNumberAa = 1;
+             int localX1 = 2;
+             int localX2 = 3;
+             int localX3 = 4;
+             int localX4 = 5;
+
+             /* Draw corresponding rectangles from the txt file*/
+             while (frameNumberAa<=amountAnnotedObjects){ 
+               int pointUno = atoi(x.at( localX1 ).c_str());
+               int pointDos = atoi(x.at( localX2 ).c_str());
+               int pointTres = atoi(x.at( localX3 ).c_str());
+               int pointQuattro =  atoi(x.at( localX4 ).c_str());
+
+
+               pointTres = pointTres + pointUno;
+               pointQuattro = pointQuattro + pointDos;
+               cv::Mat myimgclonetest;
+               myimgclonetest = imgLOI.clone();
+
+               cv::rectangle(imgLOI,cv::Point(pointUno, pointDos) ,cv::Point(pointTres,pointQuattro), cv::Scalar(255, 255, 255),1,1);
+
+               imshow("Annotation Window", imgLOI);
+
+               localX1 = localX1 + 4;
+               localX2 = localX2 + 4;
+               localX3 = localX3 + 4;
+               localX4 = localX4 + 4;
+
+              frameNumberAa  = frameNumberAa  + 1;
+            }
+        waitKey();
+
         memset(finalRepeatString, 0, sizeof(finalRepeatString));
         stringstream pngfilename;
         pngfilename << "../outputAnnotations/" << frameNumber << ".png";
         pngPath = pngfilename.str();
         imwrite(pngPath,imgClone);
         frameNumber++;
+       
+        }
 
-    } 
+  
+        
+
+    
     }
     frameIterator++;
     cout << "frameIterator: " << frameIterator << endl;

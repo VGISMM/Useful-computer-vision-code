@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-# Install script for directory: /Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo
-=======
 # Install script for directory: /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo
->>>>>>> newFunctions
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -37,13 +33,7 @@ else()
   set(CMAKE_INSTALL_MANIFEST "install_manifest.txt")
 endif()
 
-<<<<<<< HEAD
-file(WRITE "/Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/${CMAKE_INSTALL_MANIFEST}" "")
-foreach(file ${CMAKE_INSTALL_MANIFEST_FILES})
-  file(APPEND "/Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
-=======
 file(WRITE "/Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo/${CMAKE_INSTALL_MANIFEST}" "")
 foreach(file ${CMAKE_INSTALL_MANIFEST_FILES})
   file(APPEND "/Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo/${CMAKE_INSTALL_MANIFEST}" "${file}\n")
->>>>>>> newFunctions
 endforeach()

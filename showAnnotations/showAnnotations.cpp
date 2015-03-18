@@ -109,12 +109,12 @@ int main(int argc, char** argv)
           pointQuattro = pointQuattro + pointDos;
 
           cv::rectangle(imgClone,cv::Point(pointUno, pointDos) ,cv::Point(pointTres,pointQuattro), cv::Scalar(255, 255, 255),2,2);
-          Mat temp;
+         /* Mat temp;
           temp = img(cv::Rect(cv::Point(pointUno+4, pointDos+4), cv::Point(pointTres-4,pointQuattro-4)));
           cv::resize(temp,temp,cv::Size(20,20),cv::INTER_NEAREST);
           sprintf (tempfilename, "../out/%i.png",outputframenumber);
           outputframenumber++;
-          imwrite(tempfilename,temp);
+          imwrite(tempfilename,temp);*/
           localX1 = localX1 + 4;
           localX2 = localX2 + 4;
           localX3 = localX3 + 4;

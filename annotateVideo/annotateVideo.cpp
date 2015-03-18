@@ -73,7 +73,7 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata){
     cv::Rect rectFloodFill;
     cv::Mat newimage;
     newimage = imgLOI.clone();
-    cv::floodFill(newimage, pt, 0, &rectFloodFill, cvScalarAll(60), cvScalarAll(60), 8 + (255 << 8)+cv::FLOODFILL_FIXED_RANGE);
+    cv::floodFill(newimage, pt, 0, &rectFloodFill, cvScalarAll(80), cvScalarAll(80), 8 + (255 << 8)+cv::FLOODFILL_FIXED_RANGE);
     cv::rectangle(imgLOI,cv::Point(rectFloodFill.x, rectFloodFill.y),cv::Point(rectFloodFill.x+(rectFloodFill.width), rectFloodFill.y+(rectFloodFill.height)), cv::Scalar(255, 255, 0),1,1);
     imshow("Annotation Window", imgLOI);
     printf("Press 's' - Save annotated area. Press 'i' - Ignore annotated area. \n");
@@ -116,7 +116,7 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata){
     else if(newKey=='i') 
     { 
       cv::rectangle(imgLOI,cv::Point(rectFloodFill.x, rectFloodFill.y),cv::Point(rectFloodFill.x+(rectFloodFill.width), rectFloodFill.y+(rectFloodFill.height)), cv::Scalar(0, 0, 0),1,1);
-      annotationStringVector.clear();
+      //annotationStringVector.clear();
       imshow("Annotation Window", imgLOI);
       oneMiddleAtATime=false;
     }
@@ -181,7 +181,7 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata){
     else if(newKey=='i') 
     { 
       cv::rectangle(imgLOI,cv::Point(leftClickX, leftClickY),cv::Point(rightClickX, rightClickY), cv::Scalar(0, 0, 0),1,1);
-      annotationStringVector.clear();
+      //annotationString.clear();
       imshow("Annotation Window", imgLOI);
     } 
   }

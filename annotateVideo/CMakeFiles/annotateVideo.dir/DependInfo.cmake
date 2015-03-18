@@ -4,11 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-<<<<<<< HEAD
-  "/Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/annotateVideo.cpp" "/Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/CMakeFiles/annotateVideo.dir/annotateVideo.cpp.o"
-=======
   "/Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo/annotateVideo.cpp" "/Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo/CMakeFiles/annotateVideo.dir/annotateVideo.cpp.o"
->>>>>>> newFunctions
   )
 set(CMAKE_CXX_COMPILER_ID "Clang")
 

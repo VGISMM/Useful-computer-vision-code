@@ -47,44 +47,44 @@ RM = /usr/local/Cellar/cmake/3.1.2/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo
+CMAKE_SOURCE_DIR = /Users/Morten/Documents/GitHub/Useful-computer-vision-code/showAnnotations
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo
+CMAKE_BINARY_DIR = /Users/Morten/Documents/GitHub/Useful-computer-vision-code/showAnnotations
 
 #=============================================================================
-# Target rules for target CMakeFiles/annotateVideo.dir
+# Target rules for target CMakeFiles/showAnnotations.dir
 
 # All Build rule for target.
-CMakeFiles/annotateVideo.dir/all:
-	$(MAKE) -f CMakeFiles/annotateVideo.dir/build.make CMakeFiles/annotateVideo.dir/depend
-	$(MAKE) -f CMakeFiles/annotateVideo.dir/build.make CMakeFiles/annotateVideo.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo/CMakeFiles  1
-	@echo "Built target annotateVideo"
-.PHONY : CMakeFiles/annotateVideo.dir/all
+CMakeFiles/showAnnotations.dir/all:
+	$(MAKE) -f CMakeFiles/showAnnotations.dir/build.make CMakeFiles/showAnnotations.dir/depend
+	$(MAKE) -f CMakeFiles/showAnnotations.dir/build.make CMakeFiles/showAnnotations.dir/build
+	$(CMAKE_COMMAND) -E cmake_progress_report /Users/Morten/Documents/GitHub/Useful-computer-vision-code/showAnnotations/CMakeFiles  1
+	@echo "Built target showAnnotations"
+.PHONY : CMakeFiles/showAnnotations.dir/all
 
 # Include target in all.
-all: CMakeFiles/annotateVideo.dir/all
+all: CMakeFiles/showAnnotations.dir/all
 .PHONY : all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/annotateVideo.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo/CMakeFiles 1
-	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/annotateVideo.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo/CMakeFiles 0
-.PHONY : CMakeFiles/annotateVideo.dir/rule
+CMakeFiles/showAnnotations.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Morten/Documents/GitHub/Useful-computer-vision-code/showAnnotations/CMakeFiles 1
+	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/showAnnotations.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/Morten/Documents/GitHub/Useful-computer-vision-code/showAnnotations/CMakeFiles 0
+.PHONY : CMakeFiles/showAnnotations.dir/rule
 
 # Convenience name for target.
-annotateVideo: CMakeFiles/annotateVideo.dir/rule
-.PHONY : annotateVideo
+showAnnotations: CMakeFiles/showAnnotations.dir/rule
+.PHONY : showAnnotations
 
 # clean rule for target.
-CMakeFiles/annotateVideo.dir/clean:
-	$(MAKE) -f CMakeFiles/annotateVideo.dir/build.make CMakeFiles/annotateVideo.dir/clean
-.PHONY : CMakeFiles/annotateVideo.dir/clean
+CMakeFiles/showAnnotations.dir/clean:
+	$(MAKE) -f CMakeFiles/showAnnotations.dir/build.make CMakeFiles/showAnnotations.dir/clean
+.PHONY : CMakeFiles/showAnnotations.dir/clean
 
 # clean rule for target.
-clean: CMakeFiles/annotateVideo.dir/clean
+clean: CMakeFiles/showAnnotations.dir/clean
 .PHONY : clean
 
 #=============================================================================

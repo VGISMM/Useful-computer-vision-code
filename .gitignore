@@ -1,2 +1,12 @@
 
 *.png
+
+*.cmake
+
+*.make
+
+showAnnotations/Makefile
+
+*.o
+
+*.o

@@ -26,26 +26,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /usr/local/Cellar/cmake/3.1.0/bin/cmake
+CMAKE_COMMAND = /usr/local/Cellar/cmake/3.1.2/bin/cmake
 
 # The command to remove a file.
-RM = /usr/local/Cellar/cmake/3.1.0/bin/cmake -E remove -f
+RM = /usr/local/Cellar/cmake/3.1.2/bin/cmake -E remove -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-<<<<<<< HEAD
-CMAKE_SOURCE_DIR = /Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo
-
-# The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo
-=======
 CMAKE_SOURCE_DIR = /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo
 
 # The top-level build directory on which CMake was run.
 CMAKE_BINARY_DIR = /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo
->>>>>>> newFunctions
 
 # Include any dependencies generated for this target.
 include CMakeFiles/annotateVideo.dir/depend.make
@@ -58,19 +51,6 @@ include CMakeFiles/annotateVideo.dir/flags.make
 
 CMakeFiles/annotateVideo.dir/annotateVideo.cpp.o: CMakeFiles/annotateVideo.dir/flags.make
 CMakeFiles/annotateVideo.dir/annotateVideo.cpp.o: annotateVideo.cpp
-<<<<<<< HEAD
-	$(CMAKE_COMMAND) -E cmake_progress_report /Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/CMakeFiles $(CMAKE_PROGRESS_1)
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/annotateVideo.dir/annotateVideo.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/annotateVideo.dir/annotateVideo.cpp.o -c /Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/annotateVideo.cpp
-
-CMakeFiles/annotateVideo.dir/annotateVideo.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/annotateVideo.dir/annotateVideo.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/annotateVideo.cpp > CMakeFiles/annotateVideo.dir/annotateVideo.cpp.i
-
-CMakeFiles/annotateVideo.dir/annotateVideo.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/annotateVideo.dir/annotateVideo.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/annotateVideo.cpp -o CMakeFiles/annotateVideo.dir/annotateVideo.cpp.s
-=======
 	$(CMAKE_COMMAND) -E cmake_progress_report /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo/CMakeFiles $(CMAKE_PROGRESS_1)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/annotateVideo.dir/annotateVideo.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/annotateVideo.dir/annotateVideo.cpp.o -c /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo/annotateVideo.cpp
@@ -82,7 +62,6 @@ CMakeFiles/annotateVideo.dir/annotateVideo.cpp.i: cmake_force
 CMakeFiles/annotateVideo.dir/annotateVideo.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/annotateVideo.dir/annotateVideo.cpp.s"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo/annotateVideo.cpp -o CMakeFiles/annotateVideo.dir/annotateVideo.cpp.s
->>>>>>> newFunctions
 
 CMakeFiles/annotateVideo.dir/annotateVideo.cpp.o.requires:
 .PHONY : CMakeFiles/annotateVideo.dir/annotateVideo.cpp.o.requires
@@ -138,10 +117,6 @@ CMakeFiles/annotateVideo.dir/clean:
 .PHONY : CMakeFiles/annotateVideo.dir/clean
 
 CMakeFiles/annotateVideo.dir/depend:
-<<<<<<< HEAD
-	cd /Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo /Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo /Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo /Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo /Users/markpp/Desktop/mark/Useful-computer-vision-code/annotateVideo/CMakeFiles/annotateVideo.dir/DependInfo.cmake --color=$(COLOR)
-=======
 	cd /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo /Users/Morten/Documents/GitHub/Useful-computer-vision-code/annotateVideo/CMakeFiles/annotateVideo.dir/DependInfo.cmake --color=$(COLOR)
->>>>>>> newFunctions
 .PHONY : CMakeFiles/annotateVideo.dir/depend
 

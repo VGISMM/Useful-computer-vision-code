@@ -18,6 +18,7 @@ Mat img, imgL, imgLOI, imgClone;
 Mat myImageClone;
 Mat zoomArea;
 bool leftBeforeRight=false;
+bool oneMiddleAtATime=false;
 char annotationString[100];
 char finalannotationString[200];
 vector<string> annotationStringVector; 
@@ -63,6 +64,62 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata){
     
     imshow("Zoom Area",zoomArea);
     moveWindow("Zoom Area",0,0);
+  }
+
+  if ((event == EVENT_MBUTTONDOWN) && (oneMiddleAtATime==false) )
+  {
+    std::cout << "middle button clicked" << std::endl;
+    
+    cv::Rect rectFloodFill;
+    cv::Mat newimage;
+    newimage = imgLOI.clone();
+    cv::floodFill(newimage, pt, 0, &rectFloodFill, cvScalarAll(60), cvScalarAll(60), 8 + (255 << 8)+cv::FLOODFILL_FIXED_RANGE);
+    cv::rectangle(imgLOI,cv::Point(rectFloodFill.x, rectFloodFill.y),cv::Point(rectFloodFill.x+(rectFloodFill.width), rectFloodFill.y+(rectFloodFill.height)), cv::Scalar(255, 255, 0),1,1);
+    imshow("Annotation Window", imgLOI);
+    printf("Press 's' - Save annotated area. Press 'i' - Ignore annotated area. \n");
+    printf("Press 'f' - Write annotated areas to file, followed by 'd' to go to next frame. \n");
+    oneMiddleAtATime = true;
+    char newKey = waitKey();
+    if(newKey=='s') 
+    {
+
+      sprintf(annotationString,"%i\t%i\t%i\t%i",rectFloodFill.x,rectFloodFill.y,rectFloodFill.width,rectFloodFill.height);
+      cv::rectangle(imgLOI,cv::Point(rectFloodFill.x, rectFloodFill.y),cv::Point(rectFloodFill.x+(rectFloodFill.width), rectFloodFill.y+(rectFloodFill.height)), cv::Scalar(0, 255, 0),1,1);
+      annotationStringVector.push_back(annotationString);
+      numberOfAnnotations=numberOfAnnotations+1;
+      cout << annotationString << endl;
+      imshow("Annotation Window", imgLOI);
+      oneMiddleAtATime=false;
+
+    }
+    else if(newKey=='f') 
+    {
+      sprintf(annotationString,"%i\t%i\t%i\t%i",rectFloodFill.x,rectFloodFill.y,rectFloodFill.width,rectFloodFill.height);
+      cv::rectangle(imgLOI,cv::Point(rectFloodFill.x, rectFloodFill.y),cv::Point(rectFloodFill.x+(rectFloodFill.width), rectFloodFill.y+(rectFloodFill.height)), cv::Scalar(0, 255, 0),1,1);
+      annotationStringVector.push_back(annotationString);
+      numberOfAnnotations=numberOfAnnotations+1;
+      for (unsigned n=0; n<annotationStringVector.size(); ++n) 
+      {
+        sprintf(finalannotationString+strlen(finalannotationString),"%s\t",annotationStringVector.at(n).c_str());
+      }
+      char auha[40];
+      sprintf(auha,"%i\t%i\t",frameNumber,numberOfAnnotations);
+      myfile << auha << finalannotationString << endl;
+      cout << auha << finalannotationString << endl;
+      sprintf(previousAnnotationString,"%i\t%s",numberOfAnnotations,finalannotationString);
+      //previousAnnotationStringVector = finalannotationString;
+      
+      cout << "Annotations for frame: " << frameNumber << " saved!" << endl;
+      imshow("Annotation Window", imgLOI);
+      oneMiddleAtATime=false;
+    }
+    else if(newKey=='i') 
+    { 
+      cv::rectangle(imgLOI,cv::Point(rectFloodFill.x, rectFloodFill.y),cv::Point(rectFloodFill.x+(rectFloodFill.width), rectFloodFill.y+(rectFloodFill.height)), cv::Scalar(0, 0, 0),1,1);
+      annotationStringVector.clear();
+      imshow("Annotation Window", imgLOI);
+      oneMiddleAtATime=false;
+    }
   }
 
   if(event == EVENT_LBUTTONDOWN && (leftBeforeRight==false))
@@ -118,9 +175,6 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata){
       sprintf(previousAnnotationString,"%i\t%s",numberOfAnnotations,finalannotationString);
       //previousAnnotationStringVector = finalannotationString;
       
-      annotationStringVector.clear();
-      memset(finalannotationString, 0, sizeof(finalannotationString));
-      numberOfAnnotations=0;
       cout << "Annotations for frame: " << frameNumber << " saved!" << endl;
       imshow("Annotation Window", imgLOI);
     }
@@ -131,10 +185,6 @@ void CallBackFunc(int event, int x, int y, int flags, void* userdata){
       imshow("Annotation Window", imgLOI);
     } 
   }
-  else if  ( event == EVENT_MBUTTONDOWN )
-  {
-    cout << "Middle button of the mouse is clicked - position (" << x << ", " << y << ")" << endl;
-  }  
 }
 
 int main(int argc, char** argv)
@@ -190,6 +240,10 @@ int main(int argc, char** argv)
         cout << "Frame: " << frameNumber << "saved!" << endl;
         frameNumber++;
         cout << "Next frame will be frame: " << frameNumber << endl;
+
+        annotationStringVector.clear();
+        memset(finalannotationString, 0, sizeof(finalannotationString));
+        numberOfAnnotations=0;
         
       }
       else if(k=='a') 

@@ -177,10 +177,6 @@ int main(int argc, char** argv)
         cout << "Quitting annotation frame: " << frameNumber-1 << endl;
         break;
       }
-      /*if(k=='r') { // Restart annotation of frame
-        cout << "Restart annotation of frame does not work" << frameNumber << endl;
-        //capture.set(CV_CAP_PROP_POS_AVI_RATIO,frameIterator-1);
-      }*/
       if(k=='d') { // done annotating frame
         // Creating filename
         stringstream pngfilename;
@@ -194,16 +190,12 @@ int main(int argc, char** argv)
       }
       else if(k=='a') 
       { 
-         sprintf(finalRepeatString,"%i\t%s",frameNumber,previousAnnotationString);
+        sprintf(finalRepeatString,"%i\t%s",frameNumber,previousAnnotationString);
         std::cout << "Exact same areas as last frame are saved." << std::endl;
         myfile << finalRepeatString << endl;
-
-       // for (unsigned n=0; n<finalRepeatString.size(); ++n) {
-
+        // for (unsigned n=0; n<finalRepeatString.size(); ++n) {
              std::vector<std::string> x = split(finalRepeatString, '\t');
              int amountAnnotedObjects= atoi(x.at( 1 ).c_str());
-
-
 
              int frameNumberAa = 1;
              int localX1 = 2;
@@ -218,14 +210,12 @@ int main(int argc, char** argv)
                int pointTres = atoi(x.at( localX3 ).c_str());
                int pointQuattro =  atoi(x.at( localX4 ).c_str());
 
-
                pointTres = pointTres + pointUno;
                pointQuattro = pointQuattro + pointDos;
-               cv::Mat myimgclonetest;
-               myimgclonetest = imgLOI.clone();
+               //cv::Mat myimgclonetest;
+               //myimgclonetest = imgLOI.clone();
 
                cv::rectangle(imgLOI,cv::Point(pointUno, pointDos) ,cv::Point(pointTres,pointQuattro), cv::Scalar(255, 255, 255),1,1);
-
                imshow("Annotation Window", imgLOI);
 
                localX1 = localX1 + 4;
@@ -245,10 +235,6 @@ int main(int argc, char** argv)
         frameNumber++;
        
         }
-
-  
-        
-
     
     }
     frameIterator++;

@@ -98,7 +98,7 @@ int main(int argc, char** argv)
         int localX3 = 4;
         int localX4 = 5;
 
-        /* Draw corresponding rectangles from the txt file*/
+        // Draw corresponding rectangles from the txt file
         while (frameNumberAa<=amountAnnotedObjects){ 
           int pointUno = atoi(x.at( localX1 ).c_str());
           int pointDos = atoi(x.at( localX2 ).c_str());
@@ -108,13 +108,13 @@ int main(int argc, char** argv)
           pointTres = pointTres + pointUno;
           pointQuattro = pointQuattro + pointDos;
 
-          cv::rectangle(imgClone,cv::Point(pointUno, pointDos) ,cv::Point(pointTres,pointQuattro), cv::Scalar(255, 255, 255),2,2);
+          cv::rectangle(imgClone,cv::Point(pointUno, pointDos) ,cv::Point(pointTres,pointQuattro), cv::Scalar(255, 0, 0),1,8);
           Mat temp;
           temp = img(cv::Rect(cv::Point(pointUno+4, pointDos+4), cv::Point(pointTres-4,pointQuattro-4)));
-          cv::resize(temp,temp,cv::Size(20,20),cv::INTER_NEAREST);
+          //cv::resize(temp,temp,cv::Size(20,20),cv::INTER_NEAREST);
           sprintf (tempfilename, "../out/%i.png",outputframenumber);
           outputframenumber++;
-          imwrite(tempfilename,temp);
+          //imwrite(tempfilename,temp);
           localX1 = localX1 + 4;
           localX2 = localX2 + 4;
           localX3 = localX3 + 4;
@@ -122,6 +122,7 @@ int main(int argc, char** argv)
 
           frameNumberAa  = frameNumberAa  + 1;
         }
+
       }
     } 
 
